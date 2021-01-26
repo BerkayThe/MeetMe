@@ -6,11 +6,15 @@ using System.Text;
 
 namespace MeetMe.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    // NOTE görüntülemek için view'den Task List git 
+    // NOTE: IdentityDbContext'i benim oluşturduğum ApplicationUser sınıfıyla miras al. 
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
+
+        public DbSet<Meeting> Meetings { get; set; }
     }
 }
